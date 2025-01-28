@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class VigenereCipher 
 {
     private static final int ALPHABET_SIZE = 26;
@@ -52,13 +54,20 @@ public class VigenereCipher
 
     public static void main(String[] args) 
     {
-        String plaintext = "HELLO";
-        String key = "KEY";
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the plaintext: ");
+        String plaintext = scanner.nextLine();
+
+        System.out.print("Enter the key: ");
+        String key = scanner.nextLine();
 
         String ciphertext = encrypt(plaintext, key);
         System.out.println("Encrypted: " + ciphertext);
 
         String decryptedText = decrypt(ciphertext, key);
         System.out.println("Decrypted: " + decryptedText);
+
+        scanner.close();
     }
 }
