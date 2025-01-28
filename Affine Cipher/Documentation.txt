@@ -1,0 +1,40 @@
+Affine Cipher Implementation Explanation
+
+1. Line 1: Defines the `AffineCipher` class.
+2. Line 2: Declares a constant `ALPHABET_SIZE` with a value of 26, representing the English alphabet size.
+3. Line 4: The `encrypt` method takes plaintext and keys `a` and `b` as input.
+4. Line 5: Initializes a `StringBuilder` to store the ciphertext.
+5. Line 6: Iterates over each character in the plaintext.
+6. Line 7: Checks if the character is a letter.
+7. Line 8: Converts the character to a 0-25 range (A=0, B=1, ..., Z=25).
+8. Line 9: Applies the encryption formula: (a * x + b) % 26.
+9. Line 10: Converts the result back to a character and appends it to the ciphertext.
+10. Line 12: Appends non-alphabetic characters as is.
+11. Line 15: Returns the encrypted ciphertext.
+
+12. Line 17: The `decrypt` method takes ciphertext and keys `a` and `b` as input.
+13. Line 18: Initializes a `StringBuilder` to store the plaintext.
+14. Line 19: Calculates the modular inverse of `a` using the `modInverse` method.
+15. Line 20: Iterates over each character in the ciphertext.
+16. Line 21: Checks if the character is a letter.
+17. Line 22: Converts the character to a 0-25 range.
+18. Line 23: Applies the decryption formula: (aInverse * (y - b + 26)) % 26.
+19. Line 24: Converts the result back to a character and appends it to the plaintext.
+20. Line 26: Appends non-alphabetic characters as is.
+21. Line 29: Returns the decrypted plaintext.
+
+22. Line 31: The `modInverse` method calculates the modular inverse of `a` modulo `m`.
+23. Line 32: Ensures `a` is within the range of 0 to m-1.
+24. Line 33: Iterates through possible values of `x` to find the modular inverse.
+25. Line 34: Checks if (a * x) % m equals 1.
+26. Line 35: Returns the modular inverse `x` if found.
+27. Line 38: Throws an exception if the modular inverse does not exist.
+
+28. Line 40: The `main` method demonstrates the usage of the Affine Cipher.
+29. Line 41: Defines the plaintext as "HELLO".
+30. Line 42: Sets the key `a` to 5.
+31. Line 43: Sets the key `b` to 8.
+32. Line 45: Encrypts the plaintext using the `encrypt` method.
+33. Line 46: Prints the encrypted ciphertext.
+34. Line 48: Decrypts the ciphertext using the `decrypt` method.
+35. Line 49: Prints the decrypted plaintext.
